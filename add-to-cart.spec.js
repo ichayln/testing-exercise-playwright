@@ -22,8 +22,7 @@ test ('Test Add-To-Cart', async({ page }) => {
   await page.waitForSelector('#tbodyid');
 
   //Verify cart
-  const cartText = await page.locator('#tbodyid').textContent();
-  expect(cartText).toContain('Nokia lumia');
+  await expect(page.locator('#tbodyid')).toContainText('Nokia lumia');
 
 //Screenshoot categories Monitor
 await page.screenshot({ path: 'screenshoot/07-add-to-cart.png', fullPage: true });
